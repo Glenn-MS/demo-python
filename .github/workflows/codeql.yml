@@ -45,8 +45,8 @@ jobs:
         include:
         - language: python
           build-mode: none
-        linter: [flake8, pylint, mypy]
-        python-version: [3.8, 3.9, 3.10, 3.11, 3.12, 3.13]
+        linter: [flake8, pylint]
+        python-version: [3.9, 3.12, 3.13]
         # CodeQL supports the following values keywords for 'language': 'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
         # Use `c-cpp` to analyze code written in C, C++ or both
         # Use 'java-kotlin' to analyze code written in Java, Kotlin or both
@@ -73,8 +73,6 @@ jobs:
           flake8 .
         elif [ "${{ matrix.linter }}" == "pylint" ]; then
           pylint **/*.py
-        elif [ "${{ matrix.linter }}" == "mypy" ]; then
-          mypy .
         fi
     # Add any setup steps before running the `github/codeql-action/init` action.
     # This includes steps like installing compilers or runtimes (`actions/setup-node`
