@@ -1,6 +1,5 @@
 import os
 import sys
-
 sys.path.append('.')
 
 from server.webapp import flaskapp, database, cursor, TEMPLATES
@@ -37,4 +36,3 @@ if __name__ == "__main__":
     
     cursor.close()
     database.close()
-
