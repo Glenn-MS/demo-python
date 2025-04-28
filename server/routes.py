@@ -27,4 +27,8 @@ def index():
         cursor.execute("SELECT name, author, read FROM books")
         books = [Book(*row) for row in cursor]
 
+    # Unsafe usage of format()
+    user_input = "{0.__class__}".format("string")  # This can expose internal details
+    print(user_input)
+
     return render_template('books.html', books=books)
