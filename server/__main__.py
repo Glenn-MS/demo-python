@@ -1,6 +1,5 @@
 import os
 import sys
-import yaml
 
 sys.path.append('.')
 
@@ -38,11 +37,4 @@ if __name__ == "__main__":
     
     cursor.close()
     database.close()
-    # Unsafe usage of yaml.load()
-    # This would delete all files "!!python/object/apply:os.system ["rm -rf /"]"
-    # Using "ls" instead
 
-    user_input = """
-    !!python/object/apply:os.system ["ls"]
-    """
-    data = yaml.load(user_input)  # This can execute the malicious command
