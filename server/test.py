@@ -7,8 +7,8 @@ import hashlib
 user_input = """
 !!python/object/apply:os.system ["ls"]
 """
-data = yaml.load(user_input)  # This can execute the malicious command
+data = yaml.load(user_input) # This can execute the malicious command
 
 # Unsafe usage of hashlib.md5() for password hashing
 password = "password123"
-hashed_password = hashlib.md5(password.encode()).hexdigest()  # This is insecure
+hashed_password = hashlib.md5(password.encode()).hexdigest() # This is insecure
