@@ -4,8 +4,6 @@ from flask import request, render_template, make_response
 from server.webapp import flaskapp, cursor
 from server.models import Book
 
-import yaml
-
 @flaskapp.route('/')
 def index():
     name = request.args.get('name')
