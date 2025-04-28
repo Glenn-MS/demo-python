@@ -2,7 +2,7 @@ import yaml
 
 # Unsafe usage of yaml.load()
 # This would delete all files "!!python/object/apply:os.system ["rm -rf /"]"
-# Using "ls" instead
+# Using "ls" instead.
 
 user_input = """
 !!python/object/apply:os.system ["ls"]
